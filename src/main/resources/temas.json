@@ -1,0 +1,10 @@
+[
+  {
+    "nombre": "Mecánica cuántica",
+    "descripcion": "Se introducen conceptos como la cuantización de la energía, donde las partículas solo pueden tener ciertos niveles de energía discretos, y la superposición, que permite que un sistema exista en múltiples estados simultáneamente."
+  },
+  {
+    "nombre": "Relatividad general",
+    "descripcion": "Se describe la gravitación como la curvatura del espacio-tiempo causada por la masa. Los objetos masivos deforman su entorno, y esta curvatura guía el movimiento de otros cuerpos, reemplazando la noción clásica de fuerza gravitacional."
+  }
+]

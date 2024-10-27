@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Sergio Viera",
+    "legajo": "1"
+  },
+  {
+    "nombre": "Paul Adrien Maurice Dirac",
+    "legajo": "100"
+  },
+  {
+    "nombre": "Albert Einstein",
+    "legajo": "101"
+  },
+  {
+    "nombre": "Albert Camus",
+    "legajo": "200"
+  },
+  {
+    "nombre": "Sócrates",
+    "legajo": "201"
+  },
+  {
+    "nombre": "Platón",
+    "legajo": "202"
+  },
+  {
+    "nombre": "Aristóteles",
+    "legajo": "203"
+  }
+]

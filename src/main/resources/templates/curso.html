@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            background-color: #f2f2f2;
+            padding: 5% 5%;
+            width: 50%;
+            margin: auto;
+            max-width: 400px;
+        }
+        input {
+            border: 1px solid grey;
+            border-radius: 4px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Gestión de cursos</h2>
+    <hr>
+    <br>
+    <form action="/cursos" method="GET">
+        <button type="submit">ver cursos</button>
+    </form>
+    <br>
+    <br>
+    <form action="/cursos/buscar" method="GET">
+        <fieldset>
+            <legend>buscar curso por fecha de finalización</legend>
+            <label>fecha de finalización</label>
+            <br>
+            <input type="text" name="fechaFin">
+            <br>
+            <br>
+            <button type="sumbit">buscar</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/cursos" method="POST">
+        <fieldset>
+            <legend>crear curso</legend>
+            <label>nombre del tema</label>
+            <br>
+            <input type="text" name="tema">
+            <br>
+            <br>
+            <label>fecha de inicio</label>
+            <br>
+            <input type="text" name="fechaInicio">
+            <br>
+            <br>
+            <label>fecha de finalización</label>
+            <br>
+            <input type="text" name="fechaFin">
+            <br>
+            <br>
+            <label>legajo del docente</label>
+            <br>
+            <input type="number" name="docente">
+            <br>
+            <br>
+            <label>precio</label>
+            <br>
+            <input type="number" name="precio">
+            <br>
+            <br>
+            <button type="sumbit">crear</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/cursos" method="PUT">
+        <fieldset>
+            <legend>modificar curso</legend>
+            <label>id</label>
+            <br>
+            <input type="number" name="id">
+            <br>
+            <br>
+            <label>fecha de inicio</label>
+            <br>
+            <input type="text" name="fechaInicio">
+            <br>
+            <br>
+            <label>fecha de finalización</label>
+            <br>
+            <input type="text" name="fechaFin">
+            <br>
+            <br>
+            <label>legajo del docente</label>
+            <br>
+            <input type="number" name="docente">
+            <br>
+            <br>
+            <label>precio</label>
+            <br>
+            <input type="number" name="precio">
+            <br>
+            <br>
+            <br>
+            <button type="sumbit">modificar</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/cursos" method="DELETE">
+        <fieldset>
+            <legend>eliminar curso</legend>
+            <label>id</label>
+            <br>
+            <input type="number" name="id">
+            <br>
+            <br>
+            <button type="sumbit">eliminar</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/cursos/alumnos" method="GET">
+        <fieldset>
+            <legend>ver alumnos del curso</legend>
+            <label>id</label>
+            <br>
+            <input type="number" name="id">
+            <br>
+            <br>
+            <button type="sumbit">ver alumnos</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

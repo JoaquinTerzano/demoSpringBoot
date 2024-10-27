@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alumno</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            background-color: #f2f2f2;
+            padding: 5% 5%;
+            width: 50%;
+            margin: auto;
+            max-width: 400px;
+        }
+        input {
+            border: 1px solid grey;
+            border-radius: 4px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gestión de alumnos</h2>
+        <hr>
+        <br>
+        <form action="/alumnos" method="GET">
+            <button type="submit">ver alumnos</button>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos/buscar" method="GET">
+            <fieldset>
+                <legend>buscar alumno por id</legend>
+                <label>id</label>
+                <br>
+                <input type="number" name="id">
+                <br>
+                <br>
+                <button type="sumbit">buscar</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos" method="POST">
+            <fieldset>
+                <legend>crear alumno</legend>
+                <label>nombre</label>
+                <br>
+                <input type="text" name="nombre">
+                <br>
+                <br>
+                <label>fecha de nacimiento</label>
+                <br>
+                <input type="text" name="fechaNacimiento">
+                <br>
+                <br>
+                <button type="sumbit">crear</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos" method="PUT">
+            <fieldset>
+                <legend>modificar alumno</legend>
+                <label>id</label>
+                <br>
+                <input type="number" name="id">
+                <br>
+                <br>
+                <label>nombre</label>
+                <br>
+                <input type="text" name="nombre">
+                <br>
+                <br>
+                <label>fecha de nacimiento</label>
+                <br>
+                <input type="text" name="fechaNacimiento">
+                <br>
+                <br>
+                <button type="sumbit">modificar</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos" method="DELETE">
+            <fieldset>
+                <legend>eliminar alumno</legend>
+                <label>id</label>
+                <br>
+                <input type="number" name="id">
+                <br>
+                <br>
+                <button type="sumbit">eliminar</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos/cursos" method="GET">
+            <fieldset>
+                <legend>ver cursos del alumno</legend>
+                <label>id</label>
+                <br>
+                <input type="number" name="id">
+                <br>
+                <br>
+                <button type="sumbit">ver cursos</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos/inscribir" method="PUT">
+            <fieldset>
+                <legend>inscribir alumno al curso</legend>
+                <label>id del alumno</label>
+                <br>
+                <input type="number" name="alumnoId">
+                <br>
+                <br>
+                <label>id del curso</label>
+                <br>
+                <input type="number" name="cursoId">
+                <br>
+                <br>
+                <button type="sumbit">inscribir</button>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        <form action="/alumnos/inscribir" method="PUT">
+            <fieldset>
+                <legend>dar de baja del curso al alumno</legend>
+                <label>id del alumno</label>
+                <br>
+                <input type="number" name="alumnoId">
+                <br>
+                <br>
+                <label>id del curso</label>
+                <br>
+                <input type="number" name="cursoId">
+                <br>
+                <br>
+                <button type="sumbit">dar de baja</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

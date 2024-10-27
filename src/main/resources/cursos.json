@@ -1,0 +1,16 @@
+[
+  {
+    "tema": "Mecánica cuántica",
+    "fechaInicio": "12-03-2025",
+    "fechaFin": "23-12-2025",
+    "docente": 1234,
+    "precio": 1000
+  },
+  {
+    "tema": "Relatividad general",
+    "fechaInicio": "12-03-2025",
+    "fechaFin": "23-12-2025",
+    "docente": 7766,
+    "precio": 1000
+  }
+]

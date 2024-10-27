@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            background-color: #f2f2f2;
+            padding: 5% 5%;
+            width: 50%;
+            margin: auto;
+            max-width: 400px;
+        }
+        input {
+            border: 1px solid grey;
+            border-radius: 4px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Gestión de temas</h2>
+    <hr>
+    <br>
+    <form action="/temas" method="GET">
+        <button type="submit">ver temas</button>
+    </form>
+    <br>
+    <br>
+    <form action="/temas/buscar" method="GET">
+        <fieldset>
+            <legend>buscar tema por nombre</legend>
+            <label>nombre</label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <button type="sumbit">buscar</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/temas" method="POST">
+        <fieldset>
+            <legend>crear tema</legend>
+            <label>nombre</label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <label>descripción</label>
+            <br>
+            <input type="text" name="descripcion">
+            <br>
+            <br>
+            <button type="sumbit">crear</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/temas" method="PUT">
+        <fieldset>
+            <legend>modificar tema</legend>
+            <label>nombre</label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <label>descripción</label>
+            <br>
+            <input type="text" name="descripcion">
+            <br>
+            <br>
+            <button type="sumbit">modificar</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <form action="/temas" method="DELETE">
+        <fieldset>
+            <legend>eliminar tema</legend>
+            <label>nombre</label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <button type="sumbit">eliminar</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
