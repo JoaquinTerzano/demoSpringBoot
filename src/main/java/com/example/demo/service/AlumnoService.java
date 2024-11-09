@@ -37,8 +37,8 @@ public class AlumnoService {
         alumnoRepository.deleteById(id);
     }
 
-    public Alumno actualizarAlumno(Alumno alumno, Long id) {
-        Optional<Alumno> antiguo = alumnoRepository.findById(id);
+    public Alumno actualizarAlumno(Alumno alumno) {
+        Optional<Alumno> antiguo = alumnoRepository.findById(alumno.getId());
         if (antiguo.isPresent()) {
             Alumno actualizado = antiguo.get();
             actualizado.setId(alumno.getId());

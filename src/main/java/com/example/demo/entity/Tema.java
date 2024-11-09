@@ -8,7 +8,7 @@ public class Tema {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Esto indica que el ID será generado automáticamente
-    private int id;
+    private Integer id;
     @Column(name="nombre", unique=true)
     private String nombre;
     @Column(name="descripcion")

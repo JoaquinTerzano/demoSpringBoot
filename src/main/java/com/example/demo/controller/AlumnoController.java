@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/alumnos")
 public class AlumnoController {
@@ -31,31 +32,31 @@ public class AlumnoController {
 
     // request: buscar alumno por id
     @GetMapping("/buscar")
-    public Optional<Alumno> obtenerAlumnoPorId(@RequestParam Long id) {
+    public Optional<Alumno> obtenerAlumnoPorId(@RequestParam("id") Long id) {
         return alumnoService.obtenerAlumnoPorId(id);
     }
 
     // request: crear alumno
     @PostMapping
-    public Alumno crearAlumno(@RequestParam String nombre, @RequestParam String fechaNacimiento) {
-        return alumnoService.crearAlumno(new Alumno(nombre, fechaNacimiento));
+    public Alumno crearAlumno(@RequestBody Alumno alumno) {
+        return alumnoService.crearAlumno(alumno);
     }
 
     // request: modificar alumno
     @PutMapping
-    public Alumno actualizarAlumno(@RequestParam Long id, @RequestParam String nombre, @RequestParam String fechaNacimiento) {
-        return alumnoService.actualizarAlumno(new Alumno(nombre, fechaNacimiento), id);
+    public Alumno actualizarAlumno(@RequestBody Alumno alumno) {
+        return alumnoService.actualizarAlumno(alumno);
     }
 
     // request: eliminar alumno
     @DeleteMapping
-    public void eliminarAlumno(@RequestParam Long id) {
+    public void eliminarAlumno(@RequestParam("id") Long id) {
         alumnoService.eliminarAlumno(id);
     }
 
     // request: ver cursos del alumno
     @GetMapping("/cursos")
-    public List<Optional<Curso>> obtenerCursosPorAlumno(@RequestParam Long id) {
+    public List<Optional<Curso>> obtenerCursosPorAlumno(@RequestParam("id") Long id) {
         var cursoAlumnoList = cursoAlumnoRepository.findByAlumnoId(id);
         var cursoIdStream = cursoAlumnoList.stream().map(CursoAlumno::getCursoId);
         return (cursoIdStream.map(i -> cursoRepository.findById(i))).collect(Collectors.toList());

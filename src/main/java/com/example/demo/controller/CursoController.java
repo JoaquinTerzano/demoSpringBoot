@@ -5,6 +5,7 @@ import com.example.demo.entity.Curso;
 import com.example.demo.entity.CursoAlumno;
 import com.example.demo.repository.AlumnoRepository;
 import com.example.demo.repository.CursoAlumnoRepository;
+import com.example.demo.service.AlumnoService;
 import com.example.demo.service.CursoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {
 
     @Autowired
     private CursoService cursoService;
+    @Autowired
+    private AlumnoService alumnoService;
     @Autowired
     private AlumnoRepository alumnoRepository;
     @Autowired
@@ -41,14 +45,14 @@ public class CursoController {
 
     // request: crear curso
     @PostMapping
-    public Curso crearCurso(@RequestParam String tema, @RequestParam String fechaInicio, @RequestParam String fechaFin, @RequestParam Integer docente, @RequestParam Float precio) {
-        return cursoService.crearCurso(new Curso(tema, fechaInicio, fechaFin, docente, precio));
+    public Curso crearCurso(@RequestBody Curso curso) {
+        return cursoService.crearCurso(curso);
     }
 
     // request: modificar curso
     @PutMapping
-    public Curso modificarCurso(@RequestParam("id") Integer id, @RequestParam String tema, @RequestParam String fechaInicio, @RequestParam String fechaFin, @RequestParam Integer docente, @RequestParam Float precio) {
-        return cursoService.actualizarCurso(new Curso(tema, fechaInicio, fechaFin, docente, precio), id);
+    public Curso actualizarCurso(@RequestBody Curso curso) {
+        return cursoService.actualizarCurso(curso);
     }
 
     // request: eliminar curso
@@ -63,5 +67,20 @@ public class CursoController {
         var cursoAlumnoList = cursoAlumnoRepository.findByCursoId(id);
         var alumnoIdStream = cursoAlumnoList.stream().map(CursoAlumno::getAlumnoId);
         return (alumnoIdStream.map(i -> alumnoRepository.findById(i))).collect(Collectors.toList());
+    }
+
+    // request: inscribir alumno al curso
+    @PostMapping("/alumnos")
+    public Alumno inscribirAlumno(@RequestParam Integer id, @RequestBody Alumno alumno) {
+        alumnoService.crearAlumno(alumno);
+        alumnoService.inscribirAlumno(alumno.getId(), id);
+        return alumno;
+    }
+
+    // request: dar de baja alumno
+    @PutMapping("/alumnos")
+    public Alumno darDeBajaAlumno(@RequestParam Integer id, @RequestBody Alumno alumno) {
+        alumnoService.darDeBajaAlumno(alumno.getId(), id);
+        return alumno;
     }
 }

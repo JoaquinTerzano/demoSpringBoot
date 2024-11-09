@@ -1,4 +1,4 @@
-
+/*
 CREATE TABLE IF NOT EXISTS alumnos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
@@ -31,3 +31,4 @@ CREATE TABLE IF NOT EXISTS curso_alumno (
     curso_id INT, -- id del curso
     alumno_id BIGINT -- id del alumno
 );
+*/

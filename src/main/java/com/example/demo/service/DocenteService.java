@@ -26,13 +26,12 @@ public class DocenteService {
         return docenteRepository.save(docente);
     }
 
-    public void eliminarDocente(Integer legajo) {
-        Optional<Docente> docente = obtenerDocentePorLegajo(legajo);
-        docente.ifPresent(doc -> docenteRepository.deleteById(doc.getId()));
+    public void eliminarDocente(Integer id) {
+        docenteRepository.deleteById(id);
     }
 
-    public Docente actualizarDocente(Docente docente, Integer legajo) {
-        Optional<Docente> docenteExistente = docenteRepository.findByLegajo(legajo);
+    public Docente actualizarDocente(Docente docente) {
+        Optional<Docente> docenteExistente = docenteRepository.findByLegajo(docente.getLegajo());
         if (docenteExistente.isPresent()) {
             Docente actualizado = docenteExistente.get();
             actualizado.setId(docente.getId());

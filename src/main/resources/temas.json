@@ -6,5 +6,9 @@
   {
     "nombre": "Relatividad general",
     "descripcion": "Se describe la gravitación como la curvatura del espacio-tiempo causada por la masa. Los objetos masivos deforman su entorno, y esta curvatura guía el movimiento de otros cuerpos, reemplazando la noción clásica de fuerza gravitacional."
+  },
+  {
+    "nombre": "Angular",
+    "descripcion": "Para hacer una interfaz berreta de un CRUD me tuve que ver como 6 cursos y terminé con 10 millones de componentes. Encima te lo actualizan todos los días y la mitad de las cosas que encontras ya no te sirven."
   }
 ]

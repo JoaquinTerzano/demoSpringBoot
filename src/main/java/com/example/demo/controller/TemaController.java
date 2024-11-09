@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/temas")
 public class TemaController {
@@ -24,25 +25,25 @@ public class TemaController {
 
     // request: buscar tema por nombre
     @GetMapping("/buscar")
-    public Optional<Tema> obtenerTemaPorNombre(@RequestParam String nombre) {
+    public Optional<Tema> obtenerTemaPorNombre(@RequestParam("nombre") String nombre) {
         return temaService.obtenerTemaPorNombre(nombre);
     }
 
     // request: crear tema
     @PostMapping
-    public Tema crearTema(@RequestParam String nombre, @RequestParam String descripcion) {
-        return temaService.crearTema(new Tema(nombre, descripcion));
+    public Tema crearTema(@RequestBody Tema tema) {
+        return temaService.crearTema(tema);
     }
 
     // request: modificar tema
     @PutMapping
-    public Tema modificarTema(@RequestParam String nombre, @RequestParam String descripcion) {
-        return temaService.actualizarTema(new Tema(nombre, descripcion), nombre);
+    public Tema actualizarTema(@RequestBody Tema tema) {
+        return temaService.actualizarTema(tema);
     }
 
     // request: eliminar tema
     @DeleteMapping
-    public void eliminarNombre(@RequestParam String nombre) {
-        temaService.eliminarTema(nombre);
+    public void eliminarNombre(@RequestParam("id") Integer id) {
+        temaService.eliminarTema(id);
     }
 }

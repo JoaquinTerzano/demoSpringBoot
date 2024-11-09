@@ -30,8 +30,8 @@ public class CursoService {
         return cursoRepository.findByFechaFinContaining(fecha);
     }
 
-    public Curso actualizarCurso(Curso curso, int id) {
-        Optional<Curso> antiguo = cursoRepository.findById(id);
+    public Curso actualizarCurso(Curso curso) {
+        Optional<Curso> antiguo = cursoRepository.findById(curso.getId());
         if (antiguo.isPresent()) {
             Curso actualizado = antiguo.get();
             actualizado.setId(curso.getId());

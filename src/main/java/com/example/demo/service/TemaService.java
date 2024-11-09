@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Docente;
 import com.example.demo.entity.Tema;
 import com.example.demo.repository.TemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,8 @@ public class TemaService {
         return temaRepository.save(tema);
     }
 
-    public Tema actualizarTema(Tema tema, String nombre) {
-        Optional<Tema> antiguo = obtenerTemaPorNombre(nombre);
+    public Tema actualizarTema(Tema tema) {
+        Optional<Tema> antiguo = obtenerTemaPorNombre(tema.getNombre());
         if (antiguo.isPresent()) {
             Tema actualizado = antiguo.get();
             actualizado.setId(tema.getId());
@@ -39,8 +38,7 @@ public class TemaService {
         return null;
     }
 
-    public void eliminarTema(String nombre) {
-        Optional<Tema> tema = obtenerTemaPorNombre(nombre);
-        tema.ifPresent(tem -> temaRepository.deleteById(tem.getId()));
+    public void eliminarTema(Integer id) {
+        temaRepository.deleteById(id);
     }
 }
