@@ -4,7 +4,6 @@ import com.example.demo.entity.Alumno;
 import com.example.demo.entity.CursoAlumno;
 import com.example.demo.repository.AlumnoRepository;
 import com.example.demo.repository.CursoAlumnoRepository;
-import com.example.demo.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,6 @@ public class AlumnoService {
 
     @Autowired
     private AlumnoRepository alumnoRepository;
-    @Autowired
-    private CursoRepository cursoRepository;
     @Autowired
     private CursoAlumnoRepository cursoAlumnoRepository;
 
